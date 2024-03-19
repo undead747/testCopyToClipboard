@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
             
             // Write text to the clipboard
              navigator.clipboard.writeText(textToCopy);
+             let sel = document.getSelection();
+            sel.removeAllRanges();
             
             alert("Text copied to clipboard successfully!");
         } catch (error) {
