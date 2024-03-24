@@ -10,7 +10,8 @@
 <button id="copyButton">Copy Text to Clipboard</button>
 
 <script>
-const x = new Uint8Array(1024 * 1024 * 1024 * 1).fill(255); // 1GiB
+const object = {a: new Array(1000), b: new Array(2000)};
+setInterval(() => console.log(object.a), 1000);
 </script>
 
 </body>
