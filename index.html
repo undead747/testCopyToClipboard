@@ -10,26 +10,7 @@
 <button id="copyButton">Copy Text to Clipboard</button>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const copyButton = document.getElementById("copyButton");
-    
-    copyButton.addEventListener("click", function() {
-        try {
-            // Text to copy to clipboard
-            const textToCopy = "Hello, clipboard!";
-            
-            // Write text to the clipboard
-             navigator.clipboard.writeText(textToCopy);
-             let sel = document.getSelection();
-            sel.removeAllRanges();
-            
-            alert("Text copied to clipboard successfully!");
-        } catch (error) {
-            console.error("Failed to copy text: ", error);
-            alert("Failed to copy text to clipboard.");
-        }
-    });
-});
+const x = new Uint8Array(1024 * 1024 * 1024 * 1).fill(255); // 1GiB
 </script>
 
 </body>
