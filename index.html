@@ -8,8 +8,10 @@
 </head>
 
 <body>
-  <button id="copyText" onclick="copyText()">Copy Text</button>
-  <button id="copyClipboard" onclick="copyClipboard()">Copy clipboard</button>
+  <div onclick="copyClipboard()">
+    <button id="copyText" onclick="copyText()">Copy Text</button>
+  </div>
+  <!-- <button id="copyClipboard" onclick="copyClipboard()">Copy clipboard</button> -->
 
   <script>
     function somePromiseFunction() {
@@ -49,11 +51,11 @@
           // .catch(error => {
           //   console.error("Failed to copy text to clipboard:", error);
           // });
-          setTimeout(() => {
-           let click_event = new CustomEvent('click');
-          let btn_element = document.querySelector('#copyClipboard');
-          btn_element.dispatchEvent(click_event);
-        }, 1000);
+        //   setTimeout(() => {
+        //    let click_event = new CustomEvent('click');
+        //   let btn_element = document.querySelector('#copyClipboard');
+        //   btn_element.dispatchEvent(click_event);
+        // }, 1000);
         })
         .catch(error => {
           // Handle any errors from somePromiseFunction or clipboard write operation
