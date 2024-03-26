@@ -16,11 +16,12 @@
         setTimeout(() => {
           const textToCopy = "Hello, world!";
           resolve(textToCopy);
-        }, 995);
+        }, 996);
       });
     }
 
     function copyText() {
+
       somePromiseFunction()
         .then((textToCopy) => {
              navigator.clipboard.writeText(textToCopy)
