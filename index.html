@@ -3,16 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clipboard WriteText Example</title>
+<title>Clipboard API Example</title>
 </head>
 <body>
+  <button onclick="copyText()">Copy Text</button>
 
-<button id="copyButton">Copy Text to Clipboard</button>
+  <script>
+    function somePromiseFunction() {
+      return new Promise((resolve, reject) => {
+        // Your asynchronous operations here
+        // For example, resolving after a timeout
+        setTimeout(() => {
+          const textToCopy = "Hello, world!";
+          resolve(textToCopy);
+        }, 1000);
+      });
+    }
 
-<script>
-const object = {a: new Array(1000), b: new Array(2000)};
-setInterval(() => console.log(object.a), 1000);
-</script>
-
+    function copyText() {
+      somePromiseFunction()
+        .then((textToCopy) => {
+             navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+              console.log("Text copied to clipboard:", textToCopy);
+            })
+            .catch(error => {
+              console.error("Failed to copy text to clipboard:", error);
+            });
+        })
+        .catch(error => {
+          // Handle any errors from somePromiseFunction or clipboard write operation
+          console.error("An error occurred:", error);
+        });
+    }
+  </script>
 </body>
 </html>
