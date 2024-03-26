@@ -12,7 +12,7 @@
 
   <script>
     function somePromiseFunction() {
-      navigator.clipboard.writeText("");
+     
       return new Promise((resolve, reject) => {
         // Your asynchronous operations here
         // For example, resolving after a timeout
@@ -26,6 +26,7 @@
 
     function copyText() {
       const startTime = Date.now();
+      navigator.clipboard.writeText("");
       somePromiseFunction()
         .then((textToCopy) => {
           console.log("then")
