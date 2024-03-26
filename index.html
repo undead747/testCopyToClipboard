@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clipboard API Example</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clipboard API Example</title>
 </head>
-
 <body>
   <button onclick="copyText()">Copy Text</button>
 
@@ -22,46 +20,25 @@
       });
     }
 
-    function someSyncFunction() {
-      const startTime = Date.now();
-      while (Date.now() - startTime < 1000) {
-        // Simulating a delay of 3 seconds (3000 milliseconds)
-        // This loop will continue until 3 seconds have passed
-        // Be cautious when using such synchronous delays as they may block the main thread
-      }
-      return "Operation completed successfully.";
-    }
-
-    // function copyText() {
-    //   const startTime = Date.now();
-    //   somePromiseFunction()
-    //     .then((textToCopy) => {
-    //       const endTime = Date.now();
-    //       const executionTime = endTime - startTime;
-    //       console.log(`Execution time: ${executionTime} milliseconds`);
-    //       navigator.clipboard.writeText(textToCopy)
-    //         .then(() => {
-    //           console.log("Text copied to clipboard:", textToCopy);
-    //         })
-    //         .catch(error => {
-    //           console.error("Failed to copy text to clipboard:", error);
-    //         });
-    //     })
-    //     .catch(error => {
-    //       // Handle any errors from somePromiseFunction or clipboard write operation
-    //       console.error("An error occurred:", error);
-    //     });
-    // }
-
     function copyText() {
       const startTime = Date.now();
-      const result = syncOperation();
-      const endTime = Date.now();
-      const executionTime = endTime - startTime;
-      console.log(`Execution time: ${executionTime} milliseconds`);
-      navigator.clipboard.writeText(result);
+      somePromiseFunction()
+        .then((textToCopy) => {
+              const executionTime = endTime - startTime;
+              console.log(`Execution time: ${executionTime} milliseconds`);
+             navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+              console.log("Text copied to clipboard:", textToCopy);
+            })
+            .catch(error => {
+              console.error("Failed to copy text to clipboard:", error);
+            });
+        })
+        .catch(error => {
+          // Handle any errors from somePromiseFunction or clipboard write operation
+          console.error("An error occurred:", error);
+        });
     }
   </script>
 </body>
-
 </html>
