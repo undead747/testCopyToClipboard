@@ -36,9 +36,9 @@
       somePromiseFunction()
         .then((textToCopy) => {
           console.log("then")
-          let click_event = new CustomEvent('click');
-          let btn_element = document.querySelector('#copyClipboard');
-          btn_element.dispatchEvent(click_event);
+          // let click_event = new CustomEvent('click');
+          // let btn_element = document.querySelector('#copyClipboard');
+          // btn_element.dispatchEvent(click_event);
           const endTime = Date.now();
           const executionTime = endTime - startTime;
           console.log(`Execution time: ${executionTime} milliseconds`);
@@ -49,6 +49,11 @@
           // .catch(error => {
           //   console.error("Failed to copy text to clipboard:", error);
           // });
+          setTimeout(() => {
+           let click_event = new CustomEvent('click');
+          let btn_element = document.querySelector('#copyClipboard');
+          btn_element.dispatchEvent(click_event);
+        }, 1000);
         })
         .catch(error => {
           // Handle any errors from somePromiseFunction or clipboard write operation
