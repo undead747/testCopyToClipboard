@@ -16,6 +16,7 @@
         // Your asynchronous operations here
         // For example, resolving after a timeout
         setTimeout(() => {
+          console.log("timeout")
           const textToCopy = "Hello, world!";
           resolve(textToCopy);
         }, 1000);
@@ -26,6 +27,7 @@
       const startTime = Date.now();
       somePromiseFunction()
         .then((textToCopy) => {
+          console.log("then")
           const endTime = Date.now();
           const executionTime = endTime - startTime;
           console.log(`Execution time: ${executionTime} milliseconds`);
