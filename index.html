@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clipboard API Example</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipboard API Example</title>
 </head>
+
 <body>
   <button onclick="copyText()">Copy Text</button>
 
@@ -24,9 +26,10 @@
       const startTime = Date.now();
       somePromiseFunction()
         .then((textToCopy) => {
-              const executionTime = endTime - startTime;
-              console.log(`Execution time: ${executionTime} milliseconds`);
-             navigator.clipboard.writeText(textToCopy)
+          const endTime = Date.now();
+          const executionTime = endTime - startTime;
+          console.log(`Execution time: ${executionTime} milliseconds`);
+          navigator.clipboard.writeText(textToCopy)
             .then(() => {
               console.log("Text copied to clipboard:", textToCopy);
             })
@@ -41,4 +44,5 @@
     }
   </script>
 </body>
+
 </html>
