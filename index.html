@@ -8,12 +8,12 @@
 </head>
 
 <body>
-  <button id="copyText">Copy Text</button>
-  <!-- <button id="copyClipboard" onclick="copyClipboard()">Copy clipboard</button> -->
+  <button id="copyText" onclick="copyText()">Copy Text</button>
+  <button id="copyClipboard" onclick="copyClipboard()">Copy clipboard</button>
 
   <script>
     function somePromiseFunction() {
-     
+
       return new Promise((resolve, reject) => {
         // Your asynchronous operations here
         // For example, resolving after a timeout
@@ -25,9 +25,9 @@
       });
     }
 
-    function copyClipboard(){
-        console.log("copyClipboard");
-        navigator.clipboard.writeText("test");
+    function copyClipboard() {
+      console.log("copyClipboard");
+      navigator.clipboard.writeText("test");
     }
 
     function copyText() {
@@ -36,17 +36,19 @@
       somePromiseFunction()
         .then((textToCopy) => {
           console.log("then")
-          document.getElementById('copyClipboard').click();
+          let click_event = new CustomEvent('click');
+          let btn_element = document.querySelector('#copyClipboard');
+          btn_element.dispatchEvent(click_event);
           const endTime = Date.now();
           const executionTime = endTime - startTime;
           console.log(`Execution time: ${executionTime} milliseconds`);
           // navigator.clipboard.writeText(textToCopy)
-            // .then(() => {
-            //   console.log("Text copied to clipboard:", textToCopy);
-            // })
-            // .catch(error => {
-            //   console.error("Failed to copy text to clipboard:", error);
-            // });
+          // .then(() => {
+          //   console.log("Text copied to clipboard:", textToCopy);
+          // })
+          // .catch(error => {
+          //   console.error("Failed to copy text to clipboard:", error);
+          // });
         })
         .catch(error => {
           // Handle any errors from somePromiseFunction or clipboard write operation
@@ -54,10 +56,10 @@
         });
     }
 
-    document.getElementById("copyText").addEventListener("click",function(e) {
-      copyText();
-      copyClipboard();
-    })
+    // document.getElementById("copyText").addEventListener("click", function (e) {
+    //   copyText();
+    //   copyClipboard();
+    // })
   </script>
 </body>
 
