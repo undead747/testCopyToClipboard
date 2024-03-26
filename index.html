@@ -9,6 +9,7 @@
 
 <body>
   <button onclick="copyText()">Copy Text</button>
+  <button id="copyClipboard" onclick="copyClipboard()">Copy clipboard</button>
 
   <script>
     function somePromiseFunction() {
@@ -24,16 +25,22 @@
       });
     }
 
+    function copyClipboard(){
+        console.log("copyClipboard");
+        navigator.clipboard.writeText("test");
+    }
+
     function copyText() {
       const startTime = Date.now();
       navigator.clipboard.writeText("qwerty");
       somePromiseFunction()
         .then((textToCopy) => {
           console.log("then")
+          document.getElementById('copyClipboard').click();
           const endTime = Date.now();
           const executionTime = endTime - startTime;
           console.log(`Execution time: ${executionTime} milliseconds`);
-          navigator.clipboard.writeText(textToCopy)
+          // navigator.clipboard.writeText(textToCopy)
             .then(() => {
               console.log("Text copied to clipboard:", textToCopy);
             })
